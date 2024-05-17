@@ -1361,6 +1361,7 @@ class ibis_isgr_evts_tag(DataAnalysis):
         self.output_events=DataFile(cte)
 
 class UserGTI(DataAnalysis):
+
     gti=None
     gti_start=None
     gti_end=None
@@ -1389,6 +1390,8 @@ class UserGTI(DataAnalysis):
                 self.gti_list.append((self.gti_start[i], self.gti_end[i]))
 
 class gti_user(DataAnalysis):
+
+    input_scw=ScWData
     input_gti=UserGTI
     version="v1"
     
@@ -1441,7 +1444,7 @@ class gti_user(DataAnalysis):
 
         print('Saving merged GTI user table.')
         self.gti=da.DataFile(out_fn)
-
+        
 # maybe split indeed,but try to show another case
 class ibis_gti(DataAnalysis):
     input_scw=ScWData
